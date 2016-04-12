@@ -18,6 +18,8 @@ process plink {
 
   container 'insilicodb/docker-impute2'
 
+  maxForks 12
+
   input:
   file mapFile from mapFileChan
   file pedFile from pedFileChan
@@ -40,6 +42,8 @@ process plink {
 process shapeitCheck {
   validExitStatus 0,1,2
   errorStrategy 'ignore'
+
+  maxForks 12
 
   container 'insilicodb/docker-impute2'
 
@@ -65,6 +69,8 @@ process shapeitCheck {
 //shapitCheckChan.subscribe{  println "${it.name}"}
 
 process shapeit {
+
+  maxForks 12
 
   container 'insilicodb/docker-impute2'
 
