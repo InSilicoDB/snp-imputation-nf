@@ -10,8 +10,7 @@ params.publishDirPath = "$HOME/imputation-results"
 
 mapFileChan = Channel.fromPath(params.mapFile)
 pedFileChan = Channel.fromPath(params.pedFile)
-//chromosomesList = 1..22
-chromosomesList = 3..4
+chromosomesList = 1..22
 
 db_path = file(params.genticMapDir)
 
