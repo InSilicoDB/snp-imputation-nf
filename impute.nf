@@ -1,7 +1,7 @@
 params.pedFile = 'TODO'
 params.mapFile = 'TODO'
 params.genticMapDir = 'TODO'
-params.chromosomeSizesFile = 'TODO'
+params.chromosomeSizesFile = 'b37.chrom.sizes'
 params.referenceHapsFilePattern = "ALL.chr%s.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nomono.haplotypes.gz"
 params.referenceLegendFilePattern = "ALL.chr%s.integrated_phase1_v3.20101123.snps_indels_svs.genotypes.nomono.legend.gz"
 params.referenceGeneticMapPattern = "genetic_map_chr%s_combined_b37.txt"
