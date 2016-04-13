@@ -70,7 +70,7 @@ process shapeitCheck {
 
 process shapeit {
 
-  maxForks 6
+  maxForks 4
 
   container 'insilicodb/docker-impute2'
 
@@ -110,7 +110,7 @@ process impute2 {
 
   container 'insilicodb/docker-impute2'
 
-  maxForks 1
+  maxForks 2
   
   input:
   set val(chromosome), file("chr${chromosome}.phased.haps"), file("chr${chromosome}.phased.sample"), val(chunkStart), val(chunkEnd) from imputeChromChunckChannel
