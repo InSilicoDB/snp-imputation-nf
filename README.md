@@ -21,7 +21,7 @@ The imputation pipeline needs reference data this can be found on the [Impute2 w
 
 Here's how to start an example run using Docker (using the example dataset and parameterization included in the distribution):
 ```
-$ nextflow run insilicodb/snp-imputation-nf -profile docker --pedFile <pedFile> --mapFile <mapFile> --genticMapDir <referenceDataDir> --chromosomeSizesFile b37.chrom.sizes 
+$ nextflow run insilicodb/snp-imputation-nf --pedFile <pedFile> --mapFile <mapFile> --genticMapDir <referenceDataDir> --chromosomeSizesFile b37.chrom.sizes 
 ```
 
 For your own runs, provide your own file names, paths, parameters, etc. as defined in the `nextflow.config` file.
