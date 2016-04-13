@@ -117,7 +117,7 @@ process impute2 {
   file db_path
 
   output:
-  set val(chromosome), file("chr*-${chunkStart}-${chunkEnd}.imputed") into impute2Chan
+  set val(chromosome), file("chr${chromosome}-${chunkStart}-${chunkEnd}.imputed") into impute2Chan
 
   script:
   hapFile = file( db_path.name + "/" + sprintf(params.referenceHapsFilePattern, chromosome) )
@@ -127,8 +127,13 @@ process impute2 {
 
   """
   impute2 -use_prephased_g -known_haps_g chr${chromosome}.phased.haps -h $hapFile -l $legendFile -m $mapFile -int $chunkStart $chunkEnd -Ne 20000 -o chr${chromosome}-${chunkStart}-${chunkEnd}.imputed
+  
+  #sometimes there are no SNP's in a region
+  if [ -f "chr${chromosome}-${chunkStart}-${chunkEnd}.imputed" ]; then
+    touch "chr${chromosome}-${chunkStart}-${chunkEnd}.imputed";
+  fi
+  
   """
-
 }
 
 impute2List = impute2Chan.toSortedList() //gives a dataFlow instance, nee to get the val property of it
