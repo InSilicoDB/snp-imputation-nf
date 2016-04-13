@@ -129,7 +129,7 @@ process impute2 {
   impute2 -use_prephased_g -known_haps_g chr${chromosome}.phased.haps -h $hapFile -l $legendFile -m $mapFile -int $chunkStart $chunkEnd -Ne 20000 -o chr${chromosome}-${chunkStart}-${chunkEnd}.imputed
   
   #sometimes there are no SNP's in a region
-  if [ -f "chr${chromosome}-${chunkStart}-${chunkEnd}.imputed" ]; then
+  if [ ! -f "chr${chromosome}-${chunkStart}-${chunkEnd}.imputed" ]; then
     touch "chr${chromosome}-${chunkStart}-${chunkEnd}.imputed";
   fi
   
