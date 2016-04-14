@@ -108,6 +108,8 @@ imputeChromChunckChannel = shapeitChan.flatMap { chromosome, hapsFile, sampleFil
 
 process impute2 {
 
+  errorStrategy 'ignore'
+
   container 'insilicodb/docker-impute2'
 
   maxForks 2
